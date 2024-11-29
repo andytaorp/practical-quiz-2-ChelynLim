@@ -9,7 +9,7 @@ import React from "react";
 function Task ({ task, onToggleTask, onDeleteTask }) {
   return (
     <li className="task">
-        <li style={{ textDecoration: item.packed ? "line-through" : "none" }}></li>
+        <li style={{ textDecoration: task.isComplete ? "line-through" : "none" }}></li>
       <input
         type="checkbox"
         checked={task.isComplete}
@@ -20,4 +20,4 @@ function Task ({ task, onToggleTask, onDeleteTask }) {
     </li>
   );
 }
-export default function Task() {}
+export default Task;
