@@ -6,18 +6,20 @@ import React from "react";
  * @returns {React.Component} A <li> containing the task description and a checkbox to toggle completion
  */
 
-function Task ({ task, onToggleTask, onDeleteTask }) {
-  return (
-    <li className="task">
-        <li style={{ textDecoration: task.isComplete ? "line-through" : "none" }}></li>
-      <input
+export default function Task({ task, onDeleteTask, onToggleTask }) {
+    return (
+<li>
+<input
         type="checkbox"
-        checked={task.isComplete}
+        value={task.status}
         onChange={() => onToggleTask(task.id)}
-      />
-      <span>{task.description}</span>
-      <button onClick={() => onDeleteTask(task.id)}>Delete</button>
-    </li>
-  );
-}
-export default Task;
+        />
+<span
+        // style={{ textDecoration: item.packed ? "line-through" : "none"}}
+        style={task.status ? { textDecoration: "line-through "} : {}}>
+          {task.description}
+</span>
+<button onClick={() => onDeleteTask(task.id)}>Delete</button>
+</li>
+    );
+  }
